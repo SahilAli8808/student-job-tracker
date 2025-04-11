@@ -2,11 +2,11 @@ import React from 'react';
 import { FaTrash, FaExternalLinkAlt } from 'react-icons/fa';
 import axios from 'axios';
 import toast from 'react-hot-toast';
-
+const apiUrl = import.meta.env.VITE_API_URL; 
 const JobCard = ({ job, onUpdate }) => {
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:5000/api/jobs/${job._id}`);
+      await axios.delete(`${apiUrl}/api/jobs/${job._id}`);
       toast.success('Deleted successfully');
       onUpdate();
     } catch {
@@ -16,7 +16,7 @@ const JobCard = ({ job, onUpdate }) => {
 
   const updateStatus = async (status) => {
     try {
-      await axios.patch(`http://localhost:5000/api/jobs/${job._id}`, { status });
+      await axios.patch(`${apiUrl}/api/jobs/${job._id}`, { status });
       toast.success('Status updated');
       onUpdate();
     } catch {

@@ -4,7 +4,7 @@ import { FaPlus, FaPaperPlane, FaUserCheck, FaCheckCircle, FaTimesCircle } from 
 import JobCard from './JobCard';
 import toast from 'react-hot-toast';
 import AddJobModal from './AddJobModal'; // Make sure it's imported
-
+const apiUrl = import.meta.env.VITE_API_URL;
 const JobDashboard = () => {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -12,13 +12,17 @@ const JobDashboard = () => {
 
   const fetchJobs = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/jobs');
+      const res = await axios.get(`${apiUrl}/api/jobs`);
+     
+
       console.log(res.data)
       setJobs(Array.isArray(res.data) ? res.data : []);
     } catch (error) {
       toast.error('Error loading jobs');
     } finally {
       setLoading(false); // done fetching
+ 
+
     }
   };
 

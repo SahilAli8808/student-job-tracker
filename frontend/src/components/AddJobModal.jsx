@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 
-
+const apiUrl = import.meta.env.VITE_API_URL;
 const AddJobModal = ({ onClose, onAdded }) => {
   const [formData, setFormData] = useState({
     company: '',
@@ -15,7 +15,7 @@ const AddJobModal = ({ onClose, onAdded }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/jobs', formData);
+      await axios.post(`${apiUrl}/api/jobs/${job._id}`, formData);
       toast.success('Application added');
       onAdded();
       onClose();
