@@ -15,7 +15,7 @@ const AddJobModal = ({ onClose, onAdded }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${apiUrl}/api/jobs/${job._id}`, formData);
+      await axios.post(`${apiUrl}/api/jobs`, formData);
       toast.success('Application added');
       onAdded();
       onClose();
