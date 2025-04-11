@@ -64,5 +64,11 @@ npm start
 
 ## 📷 Preview
 
-![Preview Screenshot](screenshot.png)
+<!-- screenshot 1 -->
+### Preview Screenshot 1
+![Preview Screenshot](https://github.com/SahilAli8808/student-job-tracker/blob/main/Screenshots/Screenshot-1.jpg)
+<!-- screenshot 2 -->
+### Preview Screenshot 2
+![Preview Screenshot](https://github.com/SahilAli8808/student-job-tracker/blob/main/Screenshots/Screenshot-2.jpg)
+
 
