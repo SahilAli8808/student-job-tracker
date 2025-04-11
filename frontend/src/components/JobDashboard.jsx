@@ -40,16 +40,18 @@ const JobDashboard = () => {
   };
 
   return (
-    <div className="mx-16 p-6 min-h-screen  bg-gray-50">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold text-gray-800">📋 Job Tracker</h1>
-        <button
-          onClick={() => setShowModal(true)}
-          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 shadow"
-        >
-          <FaPlus className="text-white" /> Add New Job Application
-        </button>
-      </div>
+    <div className="px-4 sm:px-8 md:px-12 lg:mx-16 p-6 min-h-screen bg-gray-50">
+    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-6">
+      <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">📋 Job Tracker</h1>
+      <button
+        onClick={() => setShowModal(true)}
+        className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center justify-center gap-2 shadow text-sm sm:text-base"
+      >
+        <FaPlus className="text-white" /> Add New Job Application
+      </button>
+    </div>
+
+  
 
       {loading ? (
         <div className="text-center text-gray-500 text-lg">Loading jobs...</div>
