@@ -1,11 +1,12 @@
 import React from 'react';
-import Dashboard from './pages/Dashboard';
+import JobDashboard from './components/JobDashboard';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-100">
-      <header className="bg-blue-600 text-white p-4 text-center text-2xl font-bold">Student Job Tracker</header>
-      <Dashboard />
+    <div className="min-h-screen bg-gray-50">
+      <Toaster position="top-right" />
+      <JobDashboard />
     </div>
   );
 }
