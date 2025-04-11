@@ -1,11 +1,15 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const JobSchema = new mongoose.Schema({
   company: String,
   role: String,
-  status: String,
-  date: String,
-  link: String,
+  status: {
+    type: String,
+    enum: ['Applied', 'Interview', 'Offer', 'Rejected'],
+    default: 'Applied'
+  },
+  date: Date,
+  link: String
 });
 
-module.exports = mongoose.model('Job', JobSchema);
+export default mongoose.model('Job', JobSchema);

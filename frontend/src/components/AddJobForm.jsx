@@ -1,27 +1,27 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import axios from 'axios';
 
-const AddJobForm = ({ onAdd }) => {
-  const [formData, setFormData] = useState({ company: '', role: '', status: 'Applied', date: '', link: '' });
+export default function AddJobForm({ refresh }) {
+  const [job, setJob] = useState({ company: '', role: '', status: 'Applied', date: '', link: '' });
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onAdd(formData);
-    setFormData({ company: '', role: '', status: 'Applied', date: '', link: '' });
+  const submit = async () => {
+    await axios.post('http://localhost:5000/api/jobs', job);
+    refresh();
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white p-4 shadow rounded-xl max-w-md mx-auto">
-      <input type="text" name="company" placeholder="Company" value={formData.company} onChange={handleChange} className="block w-full mb-2 p-2 border rounded" required />
-      <input type="text" name="role" placeholder="Role" value={formData.role} onChange={handleChange} className="block w-full mb-2 p-2 border rounded" required />
-      <input type="date" name="date" value={formData.date} onChange={handleChange} className="block w-full mb-2 p-2 border rounded" required />
-      <input type="url" name="link" placeholder="Application Link" value={formData.link} onChange={handleChange} className="block w-full mb-2 p-2 border rounded" required />
-      <button type="submit" className="bg-blue-600 text-white p-2 rounded w-full">Add Application</button>
-    </form>
+    <div className="flex flex-col gap-2">
+      <input placeholder="Company" onChange={(e) => setJob({ ...job, company: e.target.value })} />
+      <input placeholder="Role" onChange={(e) => setJob({ ...job, role: e.target.value })} />
+      <select onChange={(e) => setJob({ ...job, status: e.target.value })}>
+        <option>Applied</option>
+        <option>Interview</option>
+        <option>Offer</option>
+        <option>Rejected</option>
+      </select>
+      <input type="date" onChange={(e) => setJob({ ...job, date: e.target.value })} />
+      <input placeholder="Link" onChange={(e) => setJob({ ...job, link: e.target.value })} />
+      <button onClick={submit} className="bg-blue-500 text-white px-3 py-1 rounded">Add</button>
+    </div>
   );
-};
-
-export default AddJobForm;
+}

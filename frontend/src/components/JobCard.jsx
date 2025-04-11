@@ -1,30 +1,26 @@
-import React from 'react';
-
-const JobCard = ({ job, onUpdate, onDelete }) => {
-  return (
-    <div className="bg-white p-4 shadow rounded-xl w-full max-w-md mx-auto">
-      <h2 className="text-xl font-semibold">{job.company}</h2>
-      <p className="text-gray-600">{job.role}</p>
-      <p className="text-sm text-gray-400">Applied on: {job.date}</p>
-
-      <div className="flex justify-between mt-4">
-        <select
-          value={job.status}
-          onChange={(e) => onUpdate(job._id, e.target.value)}
-          className="p-2 rounded border"
-        >
-          <option>Applied</option>
-          <option>Interview</option>
-          <option>Offer</option>
-          <option>Rejected</option>
-        </select>
+const statusColors = {
+    Applied: 'bg-blue-100 text-blue-700',
+    Interview: 'bg-purple-100 text-purple-700',
+    Offer: 'bg-green-100 text-green-700',
+    Rejected: 'bg-red-100 text-red-700'
+  };
+  
+  export default function JobCard({ job, onDelete, onUpdate }) {
+    return (
+      <div className="p-4 shadow rounded border flex justify-between">
+        <div>
+          <h2 className="font-bold">{job.company}</h2>
+          <p>{job.role}</p>
+          <p>Applied on: {new Date(job.date).toLocaleDateString()}</p>
+          <span className={`px-2 py-1 text-sm rounded ${statusColors[job.status]}`}>
+            {job.status}
+          </span>
+        </div>
         <div className="flex gap-2">
-          <a href={job.link} target="_blank" className="bg-blue-500 text-white p-2 rounded">View</a>
-          <button onClick={() => onDelete(job._id)} className="bg-red-500 text-white p-2 rounded">Delete</button>
+          <button onClick={() => onUpdate(job._id)}>Update</button>
+          <button onClick={() => onDelete(job._id)}>Delete</button>
         </div>
       </div>
-    </div>
-  );
-};
-
-export default JobCard;
+    );
+  }
+  
