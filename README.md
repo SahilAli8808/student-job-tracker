@@ -3,6 +3,15 @@
 
 A clean and minimal job application tracker built with **React**, **Tailwind CSS**, **Vite**, and **Node.js**.
 
+## 📷 Preview
+
+<!-- screenshot 1 -->
+### Preview Screenshot 1
+![Preview Screenshot](https://github.com/SahilAli8808/student-job-tracker/blob/main/Screenshots/Screenshot-1.jpg)
+<!-- screenshot 2 -->
+### Preview Screenshot 2
+![Preview Screenshot](https://github.com/SahilAli8808/student-job-tracker/blob/main/Screenshots/Screenshot-2.jpg)
+
 ## 🚀 Features
 
 - 📋 Add, update, and delete job applications  
@@ -62,13 +71,5 @@ npm start
 
 ---
 
-## 📷 Preview
-
-<!-- screenshot 1 -->
-### Preview Screenshot 1
-![Preview Screenshot](https://github.com/SahilAli8808/student-job-tracker/blob/main/Screenshots/Screenshot-1.jpg)
-<!-- screenshot 2 -->
-### Preview Screenshot 2
-![Preview Screenshot](https://github.com/SahilAli8808/student-job-tracker/blob/main/Screenshots/Screenshot-2.jpg)
 
 
