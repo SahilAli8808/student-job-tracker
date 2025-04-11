@@ -42,7 +42,7 @@ const JobDashboard = () => {
   return (
     <div className="px-4 sm:px-8 md:px-12 lg:mx-16 p-6 min-h-screen bg-gray-50">
     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-6">
-      <h1 className="text-2xl sm:text-3xl font-bold text-gray-800"><FaBriefcase className='inline mb-2 ml-2'/> Student Job Tracker</h1>
+      <h1 className="text-2xl sm:text-3xl font-bold text-gray-800"><FaBriefcase className='inline mb-2 ml-2'/> Job Dashboard</h1>
       <button
         onClick={() => setShowModal(true)}
         className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center justify-center gap-2 shadow text-sm sm:text-base"
