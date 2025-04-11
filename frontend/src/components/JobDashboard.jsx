@@ -36,31 +36,31 @@ const JobDashboard = () => {
   };
 
   return (
-    <div className="p-6">
+    <div className="mx-16 p-6 min-h-screen  bg-gray-50">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">Job Applications Dashboard</h1>
+        <h1 className="text-3xl font-bold text-gray-800">📋 Job Tracker</h1>
         <button
           onClick={() => setShowModal(true)}
-          className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded flex items-center gap-2"
+          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 shadow"
         >
-          <FaPlus /> Add New Application
+          <FaPlus className="text-white" /> Add New Job Application
         </button>
       </div>
 
       {loading ? (
-        <div className="text-center text-gray-500">Loading jobs...</div>
+        <div className="text-center text-gray-500 text-lg">Loading jobs...</div>
       ) : (
         <>
           {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-            <StatCard icon={<FaPaperPlane />} title="Total Applications" count={counts.total} color="bg-blue-100" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+            <StatCard icon={<FaPaperPlane />} title="Total" count={counts.total} color="bg-blue-100" />
             <StatCard icon={<FaUserCheck />} title="Interviews" count={counts.interview} color="bg-purple-100" />
             <StatCard icon={<FaCheckCircle />} title="Offers" count={counts.offer} color="bg-green-100" />
             <StatCard icon={<FaTimesCircle />} title="Rejections" count={counts.rejected} color="bg-red-100" />
           </div>
 
           {/* Job Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {jobs.map(job => (
               <JobCard key={job._id} job={job} onUpdate={fetchJobs} />
             ))}
@@ -68,16 +68,18 @@ const JobDashboard = () => {
         </>
       )}
 
-      {/* Modal (initially hidden) */}
       {showModal && <AddJobModal onClose={() => setShowModal(false)} onAdded={fetchJobs} />}
     </div>
   );
 };
 
 const StatCard = ({ icon, title, count, color }) => (
-  <div className={`p-4 rounded shadow-sm ${color}`}>
-    <div className="text-sm text-gray-600 flex items-center gap-2">{icon} {title}</div>
-    <div className="text-2xl font-bold">{count}</div>
+  <div className={`p-4 rounded-xl shadow-sm ${color} transition-transform hover:scale-105`}>
+    <div className="flex items-center gap-2 text-gray-700">
+      <span className="text-xl">{icon}</span>
+      <span className="text-md font-semibold">{title}</span>
+    </div>
+    <div className="text-3xl font-bold mt-2 text-gray-900">{count}</div>
   </div>
 );
 
